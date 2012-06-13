@@ -269,8 +269,8 @@ module Svn2Git
 
       current = {}
       if !@options[:bare]
-        current['user.name']  = run_command("#{_cmd} config --local --get user.name", false)
-        current['user.email'] = run_command("#{_cmd} config --local --get user.email", false)
+        current['user.name']  = run_command("#{_cmd} config --local --get user.name || true", false)
+        current['user.email'] = run_command("#{_cmd} config --local --get user.email || true", false)
       end
 
       @tags.each do |tag|
